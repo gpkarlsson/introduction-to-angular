@@ -5,5 +5,6 @@ export interface HousingLocation {
     photo: string,
     availableUnits: number,
     wifi: boolean,
-    parking: boolean
+    parking: boolean,
+    laundry: boolean
 }
