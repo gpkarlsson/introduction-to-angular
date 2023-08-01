@@ -3,6 +3,15 @@
         <img src="../assets/logo.svg" alt="fairhouse">Fairhouse
     </header>
     <section>
-        <app-housing-list [locationList]="housingLocationList"></app-housing-list>
+        <app-housing-list [locationList]="housingLocationList" (selectedLocationEvent)="updateSelectedLocation($event)"></app-housing-list>
     </section>
+    <article>
+        <img [src]="selectedLocation?.photo">
+        <p>{{selectedLocation?.name}}</p>
+        <p>{{selectedLocation?.availableUnits}}</p>
+        <p>{{selectedLocation?.city}}, {{selectedLocation?.state}}</p>
+        <p>{{selectedLocation?.laundry ? "Has laundry" : "Does not have laundry"}}</p>
+        <p>{{selectedLocation?.wifi ? "Has Wi-Fi" : "Does not have Wi-Fi"}}</p>
+        <p>{{selectedLocation?.parking ? "Has parking" : "Does not have parking"}}</p>
+    </article>
 </main>

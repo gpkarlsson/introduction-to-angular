@@ -12,7 +12,7 @@ export class HousingListComponent implements OnInit {
 
   @Input() locationList: HousingLocation[] = [];
   results: HousingLocation[] = [];
-  @Output() selectedLocation = new EventEmitter<HousingLocation>();
+  @Output() selectedLocationEvent = new EventEmitter<HousingLocation>();
 
   constructor() { }
 
@@ -26,6 +26,9 @@ export class HousingListComponent implements OnInit {
     .filter(
       location => location.city.toLowerCase().includes(searchText.toLowerCase())
       )
+  }
+  selectHousingLocation(location: HousingLocation) {
+    this.selectedLocationEvent.emit(location);
   }
 
 }
